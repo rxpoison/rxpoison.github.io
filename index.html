@@ -68,6 +68,12 @@
             class="fas fa-mobile-alt"></i>+66918636554
           <a href="mailto:rxpoison.ct@gmail.com">rxpoison.ct@gmail.com</a>
         </div>
+        <div class="subheading mb-5">
+          <small id="hello">
+            <span class="text-danger">**You can view full resume</span> <a href="https://rxpoison.github.io/">https://rxpoison.github.io</a>
+          </small>
+        </div>
+        
         <p class="lead mb-5 text-prompt">
           เรียนจบคณะการบัญชีและการจัดการสาขา "คอมพิวเตอร์ธุรกิจ" และได้ทำงานบริษัท Blackhole soft หลังจากนั้น
           ในตำแหน่งของ Programmer Developer มีความขยันและความชอบในการศึกษาภาษาโปรแกรมมิ่งต่างๆ
@@ -373,7 +379,21 @@
           then.add(months, 'months');
           let days = now.diff(then, 'days');
           $('#exp-now').text(`${years} years ${months} months ${days} days`);
-        })()
+        })();
+
+        (hello = () => {
+          let last_view = localStorage.getItem("view");
+          if(last_view === 'hello'){
+            let hello_text = ['สวัสดี! เจอกันอีกครั้งแล้วนะ',
+                              'ขอบคุณที่กลับเข้ามาดู Resume อีกรอบครับ',
+                              'สวัสดี!'];
+            let hello = hello_text[Math.floor(Math.random() * hello_text.length)];
+
+            $('#hello').prepend(`<span class="text-info text-prompt">${hello}</span><br>`);            
+          }else{
+            localStorage.setItem("view", "hello");
+          }
+        })();
 
         $('.check-icon').prepend('<i class="fa-li fa fa-check text-success"></i>');
         $('.question-icon').prepend('<i class="fa-li fa fa-question text-secondary"></i>');
