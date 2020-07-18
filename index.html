@@ -383,6 +383,7 @@
         let now = moment(moment().format('YYYY/MM/DD HH:mm:ss'));
         let years = now.diff(then, 'year');
         then.add(years, 'years');
+        
         let months = now.diff(then, 'months');
         then.add(months, 'months');
         let days = now.diff(then, 'days');
